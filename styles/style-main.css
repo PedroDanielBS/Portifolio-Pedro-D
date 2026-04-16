@@ -400,7 +400,7 @@ footer { text-align: center; padding: 50px; border-top: 1px solid #333; color: v
 .pricing-section {
     padding: 0px 5% 50px 5%;
     text-align: center;
-    background-color: #0d0d0d;
+    background-color: var(--bg-dark);
 }
 
 .pricing-header h2 {
@@ -688,6 +688,10 @@ footer { text-align: center; padding: 50px; border-top: 1px solid #333; color: v
 
 .iframe-behance {
     overflow-x: hidden;
+}
+
+.reveal-image {
+    overflow: hidden;
 }
 
 .reveal-text {
