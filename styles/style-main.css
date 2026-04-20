@@ -443,7 +443,7 @@ to{
 footer { text-align: center; padding: 50px; border-top: 1px solid #333; color: var(--text-gray); font-size: 0.8rem; }
 
 .pricing-section {
-    padding: 0px 5% 50px 5%;
+    padding: 50px 5% 50px 5%;
     text-align: center;
     background-color: var(--bg-dark);
 }
@@ -796,7 +796,7 @@ footer { text-align: center; padding: 50px; border-top: 1px solid #333; color: v
 
 
 .referral-section {
-    background-color: #000;
+    background-color: var(--bg-dark);
     padding: 10px 5%;
     text-align: center;
     font-family: 'Inter', sans-serif;
