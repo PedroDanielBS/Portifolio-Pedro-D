@@ -96,3 +96,74 @@ document.addEventListener("mouseout", (e) => {
         document.body.classList.remove("cursor-hover");
     }
 });
+
+function changeLanguage(lang) {
+    const switchEl = document.querySelector('.lang-switch');
+    const btnPt = document.getElementById('btn-pt');
+    const btnEn = document.getElementById('btn-en');
+    
+    // 1. Atualiza o visual do botão (Slider e Cores)
+    if (lang === 'en') {
+        switchEl.classList.add('en-active');
+        btnEn.classList.add('active');
+        btnPt.classList.remove('active');
+    } else {
+        switchEl.classList.remove('en-active');
+        btnPt.classList.add('active');
+        btnEn.classList.remove('active');
+    }
+    
+    // 2. Busca todos os elementos do site que têm tradução configurada
+    const elementsToTranslate = document.querySelectorAll('[data-pt]');
+    
+    elementsToTranslate.forEach(element => {
+        if (lang === 'en') {
+            // Se existir o atributo em inglês, altera o texto
+            if (element.getAttribute('data-en')) {
+                element.innerHTML = element.getAttribute('data-en');
+            }
+        } else {
+            // Volta para o português
+            element.innerHTML = element.getAttribute('data-pt');
+        }
+    });
+    
+    // 3. Salva a preferência do usuário no navegador (Opcional, mas muito profissional)
+    localStorage.setItem('preferred-lang', lang);
+}
+
+// Verifica se o usuário já tinha escolhido um idioma antes ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem('preferred-lang');
+    if (savedLang && savedLang === 'en') {
+        changeLanguage('en');
+    }
+});
+
+/* ==========================================================================
+   CONTROLE DO MENU MOBILE INTERATIVO
+   ========================================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const navOverlay = document.getElementById("navOverlay");
+    const navItems = document.querySelectorAll("#navOverlay a");
+
+    function toggleMenu() {
+        menuToggle.classList.toggle("active");
+        navOverlay.classList.toggle("active");
+        document.body.classList.toggle("menu-open");
+    }
+
+    if (menuToggle && navOverlay) {
+        menuToggle.addEventListener("click", toggleMenu);
+    }
+
+    navItems.forEach(item => {
+        item.addEventListener("click", () => {
+            if (navOverlay.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+    });
+});
