@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços | Pedro Daniel</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/styles/aba-servicos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="services-page-body">
+
+    <div class="fixed-language-toggle">
+        <div class="lang-switch">
+            <div class="lang-slider"></div>
+            <button class="lang-btn active" id="btn-pt" onclick="changeLanguage('pt')">PT</button>
+            <button class="lang-btn" id="btn-en" onclick="changeLanguage('en')">EN</button>
+        </div>
+    </div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div class="fixed-back-button">
+        <a href="index.html" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span data-pt="Voltar" data-en="Back">Voltar</span>
+        </a>
+    </div>
+
+    <main class="services-wrapper">
+        <header class="services-header">
+            <span class="badge" data-pt="Portfolio de Especialidades" data-en="Specialties Portfolio">Portfolio de Especialidades</span>
+            <h1 data-pt="Soluções Digitais <span>Premium</span>" data-en="Premium <span>Digital Solutions</span>">Soluções Digitais <span>Premium</span></h1>
+            <p data-pt="Selecione uma categoria para visualizar os detalhes e projetos." data-en="Select a category to view details and projects.">Selecione uma categoria para visualizar os detalhes e projetos.</p>
+        </header>
+
+        <div class="tabs-navigation">
+            <div class="tabs-container">
+                <button class="tab-trigger active" onclick="filterServices('thumbnails', this)" data-pt="Thumbnails" data-en="Thumbnails">
+                    Thumbnails
+                </button>
+                <button class="tab-trigger" onclick="filterServices('social-media', this)" data-pt="Social Media" data-en="Social Media">
+                    Social Media
+                </button>
+                <button class="tab-trigger" onclick="filterServices('landing-pages', this)" data-pt="Landing Pages" data-en="Landing Pages">
+                    Landing Pages
+                </button>
+            </div>
+        </div>
+
+        <section class="services-display" id="servicesGrid">
+            
+            <div class="service-item" data-category="thumbnails">
+                <div class="swiper inner-service-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/img/thumb-agro-contol-lp.png" alt="Thumbnail">
+                            <div class="slide-overlay"><span data-pt="Ver Projeto" data-en="View Project">Ver Projeto</span></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/img/thumb-agro-contol-lp.png" alt="Thumbnail">
+                            <div class="slide-overlay"><span data-pt="Ver Projeto" data-en="View Project">Ver Projeto</span></div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="nav-wrapper">
+                        <div class="swiper-button-prev custom-nav"></div>
+                        <div class="swiper-button-next custom-nav"></div>
+                    </div>
+                </div>
+                <div class="service-details">
+                    <span class="service-tag">High CTR</span>
+                    <h3 data-pt="Thumbnails para YouTube" data-en="YouTube Thumbnails">Thumbnails para YouTube</h3>
+                    <p data-pt="Design estratégico focado em cliques e retenção." data-en="Strategic design focused on clicks and retention.">Design estratégico focado em cliques e retenção.</p>
+                </div>
+            </div>
+
+            <div class="service-item" data-category="social-media" style="display: none;">
+                <div class="swiper inner-service-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/img/social-exemplo.png" alt="Social Media">
+                            <div class="slide-overlay"><span data-pt="Ver Projeto" data-en="View Project">Ver Projeto</span></div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="nav-wrapper">
+                        <div class="swiper-button-prev custom-nav"></div>
+                        <div class="swiper-button-next custom-nav"></div>
+                    </div>
+                </div>
+                <div class="service-details">
+                    <span class="service-tag" data-pt="Identidade" data-en="Identity">Identidade</span>
+                    <h3 data-pt="Gestão Visual Instagram" data-en="Instagram Visual Management">Gestão Visual Instagram</h3>
+                    <p data-pt="Posts e Stories que transmitem autoridade." data-en="Posts and Stories that convey authority.">Posts e Stories que transmitem autoridade.</p>
+                </div>
+            </div>
+
+            <div class="service-item" data-category="landing-pages" style="display: none;">
+                <div class="swiper inner-service-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/img/lp-exemplo.png" alt="Landing Page">
+                            <div class="slide-overlay"><span data-pt="Ver Projeto" data-en="View Project">Ver Projeto</span></div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="nav-wrapper">
+                        <div class="swiper-button-prev custom-nav"></div>
+                        <div class="swiper-button-next custom-nav"></div>
+                    </div>
+                </div>
+                <div class="service-details">
+                    <span class="service-tag" data-pt="Conversão" data-en="Conversion">Conversão</span>
+                    <h3 data-pt="Landing Pages de Alta Performance" data-en="High-Performance Landing Pages">Landing Pages de Alta Performance</h3>
+                    <p data-pt="Páginas de vendas focadas em resultados reais." data-en="Sales pages focused on real results.">Páginas de vendas focadas em resultados reais.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="services-footer">
+            <p data-pt="Interessado em elevar o nível do seu projeto?" data-en="Interested in taking your project to the next level?">Interessado em elevar o nível do seu projeto?</p>
+            <a href="https://wa.me/5577998025597" class="btn-primary" data-pt="Solicitar Orçamento" data-en="Request a Quote">Solicitar Orçamento</a>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/scripts/aba-servicos.js"></script>
+
+</body>
+</html>
