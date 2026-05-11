@@ -386,6 +386,44 @@ header {
     min-height: 100vh;
 }
 
+#hero {
+    position: relative;
+    z-index: 1;
+}
+
+/* Garante que o canvas criado pelo Vanta preencha tudo e herde a transparência */
+.vanta-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Fica atrás do conteúdo */
+}
+
+/* Seleciona o canvas gerado pelo Vanta */
+#hero canvas {
+    opacity: 0.15 !important; /* 15% de visibilidade: o amarelo fica quase como uma marca d'água */
+    transition: opacity 0.5s ease;
+}
+
+/* Efeito extra: Quando o usuário passar o mouse no hero, a animação brilha um pouquinho mais */
+#hero:hover canvas {
+    opacity: 0.25 !important;
+}
+
+/* Camada de máscara para suavizar ainda mais a animação */
+#hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1; /* Fica entre a animação e o texto */
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Texto acima de tudo */
+}
+
 #sobre { position: absolute; top: -200px; }
 
 .about-section {

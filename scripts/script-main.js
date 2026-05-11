@@ -168,3 +168,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    VANTA.NET({
+        el: "#hero",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        /* Configuração de Cor */
+        color: 0xffd700,           // Seu Amarelo (#FFD700)
+        backgroundColor: 0x0c0c0c, // Cor de fundo base
+        backgroundAlpha: 0.0,      // Fundo Transparente
+        /* Ajustes de Sutileza */
+        points: 6.00,              // Reduzi ainda mais (muito minimalista)
+        maxDistance: 18.00,        // Linhas um pouco mais longas e finas
+        spacing: 18.00,            // Espaçamento elegante
+        showDots: true             // Ativei os pontos para dar um brilho tecnológico
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Cria uma linha do tempo para as animações ocorrerem em sequência
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    tl.to(".hero-content .badge", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        startAt: { y: 40 } // Começa 40px abaixo
+    })
+    .to(".hero-content h1", {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        startAt: { y: 100 }, // O H1 sobe de mais longe
+    }, "-=0.8") // Começa 0.8s antes da animação anterior terminar (overlap)
+    .to(".hero-content p", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        startAt: { y: 50 }
+    }, "-=0.7")
+    .to(".hero-btns a", {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2, // Anima um botão depois do outro
+        duration: 0.8,
+        startAt: { y: 30 }
+    }, "-=0.5");
+
+    // BÔNUS: Efeito de Parallax suave no seu fundo Vanta.js
+    window.addEventListener("mousemove", (e) => {
+        const { clientX, clientY } = e;
+        const xPos = (clientX / window.innerWidth - 0.5) * 20;
+        const yPos = (clientY / window.innerHeight - 0.5) * 20;
+
+        gsap.to("#hero canvas", {
+            x: xPos,
+            y: yPos,
+            duration: 2,
+            ease: "power2.out"
+        });
+    });
+});
