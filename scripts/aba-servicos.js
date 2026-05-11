@@ -74,31 +74,35 @@
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const serviceSwipers = new Swiper(".inner-service-swiper", {
-        loop: true,
-        speed: 800,
-        grabCursor: true,
-        effect: "creative",
-        creativeEffect: {
-            prev: {
-                shadow: true,
-                translate: ["-20%", 0, -1],
+    // Seleciona todos os containers de swiper da página
+    const allSwipers = document.querySelectorAll('.inner-service-swiper');
+
+    allSwipers.forEach((swiperContainer) => {
+        // Para cada container, encontramos os botões e paginação que estão DENTRO dele
+        const nextBtn = swiperContainer.querySelector('.swiper-button-next');
+        const prevBtn = swiperContainer.querySelector('.swiper-button-prev');
+        const pagination = swiperContainer.querySelector('.swiper-pagination');
+
+        new Swiper(swiperContainer, {
+            loop: true,
+            speed: 800,
+            effect: "creative",
+            creativeEffect: {
+                prev: { shadow: true, translate: ["-20%", 0, -1] },
+                next: { translate: ["100%", 0, 0] },
             },
-            next: {
-                translate: ["100%", 0, 0],
+            // Vinculamos os controles específicos deste card
+            navigation: {
+                nextEl: nextBtn,
+                prevEl: prevBtn,
             },
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            type: "progressbar",
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        // Garante funcionamento dentro das abas
-        observer: true,
-        observeParents: true
+            pagination: {
+                el: pagination,
+                type: "progressbar",
+            },
+            observer: true,
+            observeParents: true
+        });
     });
 });
 
@@ -135,4 +139,41 @@ function changeLanguage(lang) {
 document.addEventListener("DOMContentLoaded", () => {
     const savedLang = localStorage.getItem('preferred-lang') || 'pt';
     changeLanguage(savedLang);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("imgFull");
+    const closeBtn = document.querySelector(".modal-close");
+
+    // Seleciona todos os overlays "Ver Projeto"
+    const viewButtons = document.querySelectorAll('.slide-overlay');
+
+    viewButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Pega a imagem que está no mesmo slide do botão clicado
+            const slideImage = this.parentElement.querySelector('img');
+            
+            modal.style.display = "block";
+            modalImg.src = slideImage.src;
+            
+            // Trava o scroll do body ao abrir
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Fechar ao clicar no X
+    closeBtn.onclick = () => closeModal();
+
+    // Fechar ao clicar fora da imagem
+    modal.onclick = (e) => {
+        if(e.target === modal || e.target === modalImg) {
+            closeModal();
+        }
+    };
+
+    function closeModal() {
+        modal.style.display = "none";
+        document.body.style.overflow = 'auto'; // Destrava o scroll
+    }
 });

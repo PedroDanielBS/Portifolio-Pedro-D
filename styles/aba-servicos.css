@@ -11,6 +11,63 @@
     --text-gray: #a0a0a0;
 }
 
+/* LIGHTBOX MODAL */
+.image-modal {
+    display: none; 
+    position: fixed;
+    z-index: 100000; /* Acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    cursor: zoom-out;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1200px;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    animation: zoomIn 0.4s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.modal-close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 100001;
+    transition: 0.3s;
+}
+
+.modal-close:hover { color: var(--primary); }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Ajuste no Slide Overlay para indicar que é clicável */
+.slide-overlay { cursor: pointer; }
+
 /* --- SELETOR DE IDIOMA (LADO DIREITO) --- */
 .fixed-language-toggle {
     position: fixed;
@@ -285,16 +342,21 @@ body {
 }
 
 /* Efeito de Overlay no Hover */
+/* --- AJUSTES DE VISIBILIDADE DO CARROSSEL (DESKTOP E MOBILE) --- */
+
+/* 1. Botão "Ver Projeto" (slide-overlay) */
 .slide-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.5); /* Fundo sutil sempre presente */
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: 0.4s;
-    backdrop-filter: blur(4px);
+    opacity: 0; /* Escondido por padrão no desktop */
+    transition: 0.4s ease;
+    backdrop-filter: blur(2px); /* Blur sutil sempre presente */
+    cursor: pointer;
+    z-index: 5;
 }
 
 .slide-overlay span {
@@ -305,8 +367,117 @@ body {
     font-size: 0.7rem;
     font-weight: 900;
     text-transform: uppercase;
+    transform: translateY(10px); /* Leve deslocamento para animação */
+    transition: 0.4s ease;
 }
 
+.slide-overlay-a {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fundo sutil sempre presente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Escondido por padrão no desktop */
+    transition: 0.4s ease;
+    backdrop-filter: blur(2px); /* Blur sutil sempre presente */
+    cursor: pointer;
+    z-index: 5;
+}
+
+.slide-overlay-a a {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.4s ease;
+}
+
+/* 2. Setas de Navegação (custom-nav) */
+.custom-nav {
+    /* ... (seus estilos básicos existentes: width, height, background, etc.) ... */
+    opacity: 0; /* Escondido por padrão no desktop */
+    transition: 0.3s ease;
+}
+
+/* ==========================================================================
+   EFEITOS HOVER (APENAS PARA DESKTOP)
+   ========================================================================== */
+@media (min-width: 1025px) {
+    /* Revela o botão ao passar o mouse */
+    .swiper-slide:hover .slide-overlay {
+        opacity: 1;
+    }
+    
+    .swiper-slide:hover .slide-overlay span {
+        transform: translateY(0);
+    }
+
+    /* Revela as setas ao passar o mouse sobre o carrossel */
+    .inner-service-swiper:hover .custom-nav {
+        opacity: 1;
+    }
+    
+    /* Mantém o zoom na imagem apenas no desktop */
+    .service-item:hover .service-preview img {
+        transform: scale(1.05);
+    }
+}
+
+/* ==========================================================================
+   AJUSTES PARA MOBILE (TELAS ATÉ 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    /* Força o botão "Ver Projeto" a ficar SEMPRE VISÍVEL */
+    .slide-overlay {
+        opacity: 1 !important; /* Força a visibilidade */
+        background: rgba(0, 0, 0, 0.4); /* Fundo fixo para leitura */
+        backdrop-filter: blur(2px); /* Blur fixo */
+    }
+
+    .slide-overlay span {
+        transform: translateY(0) !important; /* Sem deslocamento fixo */
+        background: rgba(0, 0, 0, 0.5); /* Fundo no texto para destacar */
+    }
+
+    .slide-overlay-a {
+        opacity: 1 !important; /* Força a visibilidade */
+        background: rgba(0, 0, 0, 0.4); /* Fundo fixo para leitura */
+        backdrop-filter: blur(2px); /* Blur fixo */
+    }
+
+    .slide-overlay-a a {
+        transform: translateY(0) !important; /* Sem deslocamento fixo */
+        background: rgba(0, 0, 0, 0.5); /* Fundo no texto para destacar */
+    }   
+
+    /* Força as Setas de Navegação a ficarem SEMPRE VISÍVEIS */
+    .custom-nav {
+        opacity: 1 !important; /* Força a visibilidade */
+        background: rgba(15, 15, 15, 0.7) !important; /* Fundo mais forte para contraste */
+    }
+    
+    /* Desativa o zoom na imagem no toque */
+    .service-item:hover .service-preview img {
+        transform: none !important;
+    }
+    
+    /* Opcional: Aumenta um pouco a área de clique das setas no mobile */
+    .nav-wrapper {
+        padding: 0 10px;
+    }
+    .custom-nav {
+        width: 45px !important;
+        height: 45px !important;
+    }
+}
+
+
+.swiper-slide:hover .slide-overlay-a { opacity: 1; }
 .swiper-slide:hover .slide-overlay { opacity: 1; }
 .swiper-slide:hover img { transform: scale(1.1); }
 
