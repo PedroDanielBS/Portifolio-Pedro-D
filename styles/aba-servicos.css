@@ -511,13 +511,11 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 50% !important;
     pointer-events: auto;
-    opacity: 0;
+    opacity: 1;
     transition: 0.3s;
 }
 
 .custom-nav::after { font-size: 14px !important; color: #fff; }
-
-.inner-service-swiper:hover .custom-nav { opacity: 1; }
 
 .service-tag {
     display: inline-block;

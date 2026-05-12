@@ -1183,7 +1183,7 @@ a, button, [role="button"] {
     border-radius: 50%;
     position: fixed;
     pointer-events: none; 
-    z-index: 99999; 
+    z-index: 999999; 
     transform: translate(-50%, -50%); 
     transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
 }
@@ -1195,7 +1195,7 @@ a, button, [role="button"] {
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    z-index: 99998; 
+    z-index: 999998; 
     transform: translate(-50%, -50%);
 }
 
