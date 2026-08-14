@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serviços | Pedro Daniel</title>
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/styles/aba-servicos.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -39,103 +40,206 @@
 
     <main class="services-wrapper">
         <header class="services-header">
-            <span class="badge" data-pt="Portfolio de Especialidades" data-en="Specialties Portfolio">Portfolio de Especialidades</span>
-            <h1 data-pt="Soluções Digitais <span>Premium</span>" data-en="Premium <span>Digital Solutions</span>">Soluções Digitais <span>Premium</span></h1>
-            <p data-pt="Selecione uma categoria para visualizar os detalhes e projetos." data-en="Select a category to view details and projects.">Selecione uma categoria para visualizar os detalhes e projetos.</p>
+            <span class="badge" data-pt="Gestão de Redes & Social Media" data-en="Social Media & Management">Gestão de
+                Redes & Social Media</span>
+            <h1 data-pt="Páginas que <span>Eu Gerenciei</span>" data-en="Pages I <span>Managed</span>">Páginas que
+                <span>Eu Gerenciei</span></h1>
+            <p data-pt="Casos reais de marcas aceleradas através de posicionamento estratégico, design de alto nível e gestão de conteúdo no Instagram."
+                data-en="Real cases of brands accelerated through strategic positioning, high-level design, and Instagram content management.">
+                Casos reais de marcas aceleradas através de posicionamento estratégico, design de alto nível e gestão de
+                conteúdo no Instagram.</p>
         </header>
 
         <div class="tabs-navigation">
             <div class="tabs-container">
-                <button class="tab-trigger active" onclick="filterServices('thumbnails', this)" data-pt="Thumbnails" data-en="Thumbnails">
-                    Thumbnails
+                <button class="tab-trigger active" onclick="filterServices('social-media', this)"
+                    data-pt="Gestão de Instagram" data-en="Instagram Management">
+                    Gestão de Instagram
                 </button>
-                <button class="tab-trigger" onclick="filterServices('social-media', this)" data-pt="Social Media" data-en="Social Media">
-                    Social Media
-                </button>
-                <button class="tab-trigger" onclick="filterServices('landing-pages', this)" data-pt="Landing Pages" data-en="Landing Pages">
+                <button class="tab-trigger" onclick="filterServices('landing-pages', this)" data-pt="Landing Pages"
+                    data-en="Landing Pages">
                     Landing Pages
                 </button>
             </div>
         </div>
 
         <section class="services-display" id="servicesGrid">
-            
-            <div class="service-item" data-category="thumbnails">
-                <div class="swiper inner-service-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="/img/CYCLOP-THUMB.jpg" alt="Thumbnail">
-                            <div class="slide-overlay"><span data-pt="Ver Projeto" data-en="View Project">Ver Projeto</span></div>
+
+            <!-- ===================================================================
+                 CATEGORIA 1: GESTÃO DE INSTAGRAM (3 EMPRESAS MOSTRADAS)
+                 =================================================================== -->
+
+            <!-- EMPRESA 1: LABORATÓRIO SÃO LÁZARO -->
+            <div class="service-item insta-card" data-category="social-media">
+                <div class="insta-header">
+                    <div class="insta-profile-info">
+                        <div class="insta-avatar">
+                            <img src="/img/logo-labsaolazar.png" alt="Laboratório São Lázaro Logo">
+                            <span class="active-pulse" title="Perfil Ativo"></span>
                         </div>
-                        <div class="swiper-slide">
-                            <img src="/img/FUTEBOL-THUMB.png" alt="Thumbnail">
-                            <div class="slide-overlay"><span data-pt="Ver Projeto" data-en="View Project">Ver Projeto</span></div>
-                        </div>
-                         <div class="swiper-slide">
-                            <img src="/img/GHOSTFACE-DBD.jpg" alt="Thumbnail">
-                            <div class="slide-overlay"><span data-pt="Ver Projeto" data-en="View Project">Ver Projeto</span></div>
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="/img/thumb-venator-build.png" alt="Thumbnail">
-                            <div class="slide-overlay"><span data-pt="Ver Projeto" data-en="View Project">Ver Projeto</span></div>
+                        <div class="insta-name-box">
+                            <div class="insta-name-row">
+                                <h3>Laboratório São Lázaro</h3>
+                                <i class="fa-solid fa-circle-check verified-icon"></i>
+                            </div>
+                            <span class="insta-handle">@labsaolazaro</span>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="nav-wrapper">
-                        <div class="swiper-button-prev custom-nav"></div>
-                        <div class="swiper-button-next custom-nav"></div>
-                    </div>
+                    <span class="insta-sector" data-pt="Saúde & Diagnósticos" data-en="Healthcare & Diagnostics">Saúde &
+                        Diagnósticos</span>
                 </div>
+
+                <div class="insta-media-cover">
+                    <img src="/img/lab-thumb.png" alt="São Lázaro Instagram Feed">
+                    <div class="slide-overlay-a"><a target="_blank"
+                            href="https://www.instagram.com/labsaolazaro/"
+                            data-pt="Ver no Instagram" data-en="View on Instagram">Ver no Instagram</a></div>
+                </div>
+
                 <div class="service-details">
-                    <span class="service-tag">High CTR</span>
-                    <h3 data-pt="Thumbnails para YouTube" data-en="YouTube Thumbnails">Thumbnails para YouTube</h3>
-                    <p data-pt="Design estratégico focado em cliques e retenção." data-en="Strategic design focused on clicks and retention.">Design estratégico focado em cliques e retenção.</p>
+                    <div class="kpi-pills">
+                        <span class="kpi-pill"><i class="fa-solid fa-chart-line"></i> +180% Alcance</span>
+                        <span class="kpi-pill"><i class="fa-solid fa-palette"></i> Grid Harmonizado</span>
+                        <span class="kpi-pill"><i class="fa-solid fa-user-doctor"></i> Autoridade Médica</span>
+                    </div>
+                    <p data-pt="Redesign completo e gestão estratégica do perfil no Instagram. Alinhamento de identidade visual, criação de carrosséis educativos de exames e campanhas de humanização da marca no setor de saúde."
+                        data-en="Complete redesign and strategic Instagram management. Visual identity alignment, creation of educational health carousels, and brand humanization campaigns.">
+                        Redesign completo e gestão estratégica do perfil no Instagram. Alinhamento de identidade visual,
+                        criação de carrosséis educativos de exames e campanhas de humanização da marca no setor de
+                        saúde.
+                    </p>
+                    <div class="insta-action-row">
+                        <a href="https://www.instagram.com/labsaolazaro/"
+                            target="_blank" class="insta-link-btn">
+                            <span data-pt="Ver Perfil no Instagram ↗" data-en="View Instagram Profile ↗">Ver Perfil no Instagram ↗</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="service-item" data-category="social-media" style="display: none;">
-                <div class="swiper inner-service-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="/img/Captura de tela 2026-05-10 203834.png" alt="Social Media">
-                            <div class="slide-overlay-a"><a target="_blank" href="https://www.behance.net/gallery/197718721/Identidade-Visual-Laboratorio-Sao-Lazaro" data-pt="Ver Projeto" data-en="View Project">Ver Projeto</a></div>
+            <!-- EMPRESA 2: AGRO CONTROL CONTABILIDADE -->
+            <div class="service-item insta-card" data-category="social-media">
+                <div class="insta-header">
+                    <div class="insta-profile-info">
+                        <div class="insta-avatar">
+                            <img src="/img/logo-agrocontrol.png" alt="Agro Control Contabilidade Logo">
+                            <span class="active-pulse" title="Perfil Ativo"></span>
+                        </div>
+                        <div class="insta-name-box">
+                            <div class="insta-name-row">
+                                <h3>Agro Control Contabilidade</h3>
+                                <i class="fa-solid fa-circle-check verified-icon"></i>
+                            </div>
+                            <span class="insta-handle">@agrocontrolcontabilidade</span>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="nav-wrapper">
-                        <div class="swiper-button-prev custom-nav"></div>
-                        <div class="swiper-button-next custom-nav"></div>
-                    </div>
+                    <span class="insta-sector" data-pt="Agronegócio & Finanças"
+                        data-en="Agribusiness & Finance">Agronegócio & Finanças</span>
                 </div>
+
+                <div class="insta-media-cover">
+                    <img src="/img/agro-thumb.png" alt="Agro Control Social Media">
+                    <div class="slide-overlay-a"><a target="_blank" href="https://www.instagram.com/agrocontrolcontabilidade/"
+                            data-pt="Ver no Instagram" data-en="View on Instagram">Ver no Instagram</a></div>
+                </div>
+
                 <div class="service-details">
-                    <span class="service-tag" data-pt="Identidade" data-en="Identity">Identidade</span>
-                    <h3 data-pt="Gestão Visual Instagram" data-en="Instagram Visual Management">Gestão Visual Instagram</h3>
-                    <p data-pt="Posts e Stories que transmitem autoridade." data-en="Posts and Stories that convey authority.">Posts e Stories que transmitem autoridade.</p>
+                    <div class="kpi-pills">
+                        <span class="kpi-pill"><i class="fa-solid fa-tractor"></i> Niched Target</span>
+                        <span class="kpi-pill"><i class="fa-solid fa-bullhorn"></i> Funil de Lead Agro</span>
+                        <span class="kpi-pill"><i class="fa-solid fa-gem"></i> Visual Premium</span>
+                    </div>
+                    <p data-pt="Posicionamento de marca focado em produtores rurais e empresários do agronegócio. Planejamento editorial diário, materiais informativos de alta precisão e integração com anúncios pagos."
+                        data-en="Brand positioning focused on rural producers and agribusiness entrepreneurs. Daily content planning, high-precision informative posts, and paid traffic integration.">
+                        Posicionamento de marca focado em produtores rurais e empresários do agronegócio. Planejamento
+                        editorial diário, materiais informativos de alta precisão e integração com anúncios pagos.
+                    </p>
+                    <div class="insta-action-row">
+                        <a href="https://www.instagram.com/agrocontrolcontabilidade/" target="_blank" class="insta-link-btn">
+                            <span data-pt="Ver Perfil no Instagram ↗" data-en="View Instagram Profile ↗">Ver Perfil no Instagram ↗</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
+            <!-- EMPRESA 3: REDE AVANX -->
+            <div class="service-item insta-card" data-category="social-media">
+                <div class="insta-header">
+                    <div class="insta-profile-info">
+                        <div class="insta-avatar">
+                            <img src="/img/logo-avanx.png" alt="Rede Avanx Logo">
+                            <span class="active-pulse" title="Perfil Ativo"></span>
+                        </div>
+                        <div class="insta-name-box">
+                            <div class="insta-name-row">
+                                <h3 data-pt="Rede Avanx" data-en="Rede Avanx">Rede Avanx</h3>
+                                <i class="fa-solid fa-circle-check verified-icon"></i>
+                            </div>
+                            <span class="insta-handle">@redeavanx</span>
+                        </div>
+                    </div>
+                    <span class="insta-sector" data-pt="Postos de Combustível" data-en="Fuel & Convenience">Postos de Combustível</span>
+                </div>
+
+                <div class="insta-media-cover">
+                    <img src="/img/avanx-thumb.png" alt="Rede Avanx Social Media">
+                    <div class="slide-overlay-a"><a target="_blank" href="https://www.instagram.com/redeavanx/"
+                            data-pt="Ver no Instagram" data-en="View on Instagram">Ver no Instagram</a></div>
+                </div>
+
+                <div class="service-details">
+                    <div class="kpi-pills">
+                        <span class="kpi-pill"><i class="fa-solid fa-gas-pump"></i> Combustível & Conveniência</span>
+                        <span class="kpi-pill"><i class="fa-solid fa-tags"></i> Promoções & Fidelidade</span>
+                        <span class="kpi-pill"><i class="fa-solid fa-location-dot"></i> Presença Local</span>
+                    </div>
+                    <p data-pt="Gestão completa de redes sociais para a rede de postos de combustível. Estratégia de conteúdo focada no engajamento de motoristas, divulgação de promoções, loja de conveniência e fortalecimento da marca na região."
+                        data-en="Complete social media management for a fuel station network. Content strategy focused on driver engagement, promotional campaigns, convenience store highlights, and regional brand positioning.">
+                        Gestão completa de redes sociais para a rede de postos de combustível. Estratégia de conteúdo focada no engajamento de motoristas, divulgação de promoções, loja de conveniência e fortalecimento da marca na região.
+                    </p>
+                    <div class="insta-action-row">
+                        <a href="https://www.instagram.com/redeavanx/" target="_blank" class="insta-link-btn">
+                            <span data-pt="Ver Perfil no Instagram ↗" data-en="View Instagram Profile ↗">Ver Perfil no Instagram ↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===================================================================
+                 CATEGORIA 2: LANDING PAGES DE ALTA PERFORMANCE
+                 =================================================================== -->
             <div class="service-item" data-category="landing-pages" style="display: none;">
                 <div class="swiper inner-service-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="/img/Captura de tela 2026-05-27 012435.png" alt="Landing Page">
-                            <div class="slide-overlay-a"><a target="_blank" href="https://pedrodanielbs.github.io/KRYPT-Streetwear-Web-Store/" data-pt="Ver Projeto" data-en="View Project">Ver Projeto</a></div>
+                            <img src="/img/Captura de tela 2026-05-27 012435.png" alt="Landing Page Krypt">
+                            <div class="slide-overlay-a"><a target="_blank"
+                                    href="https://pedrodanielbs.github.io/KRYPT-Streetwear-Web-Store/"
+                                    data-pt="Ver Projeto" data-en="View Project">Ver Projeto</a></div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="/img/Captura de tela 2026-05-27 012312.png" alt="Landing Page">
-                            <div class="slide-overlay-a"><a target="_blank" href="https://pedrodanielbs.github.io/Psicologia-website/" data-pt="Ver Projeto" data-en="View Project">Ver Projeto</a></div>
+                            <img src="/img/Captura de tela 2026-05-27 012312.png" alt="Landing Page Psicologia">
+                            <div class="slide-overlay-a"><a target="_blank"
+                                    href="https://pedrodanielbs.github.io/Psicologia-website/" data-pt="Ver Projeto"
+                                    data-en="View Project">Ver Projeto</a></div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="/img/Captura de tela 2026-05-10 211300.png" alt="Landing Page">
-                            <div class="slide-overlay-a"><a target="_blank" href="https://pedrodanielbs.github.io/Pet-shop/" data-pt="Ver Projeto" data-en="View Project">Ver Projeto</a></div>
+                            <img src="/img/Captura de tela 2026-05-10 211300.png" alt="Landing Page Pet shop">
+                            <div class="slide-overlay-a"><a target="_blank"
+                                    href="https://pedrodanielbs.github.io/Pet-shop/" data-pt="Ver Projeto"
+                                    data-en="View Project">Ver Projeto</a></div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="/img/thumb-agro-contol-lp.png" alt="Landing Page">
-                            <div class="slide-overlay-a"><a target="_blank" href="https://pedrodanielbs.github.io/AGRO-CONTROL-WEBSITE/" data-pt="Ver Projeto" data-en="View Project">Ver Projeto</a></div>
+                            <img src="/img/thumb-agro-contol-lp.png" alt="Landing Page Agro Control">
+                            <div class="slide-overlay-a"><a target="_blank"
+                                    href="https://pedrodanielbs.github.io/AGRO-CONTROL-WEBSITE/" data-pt="Ver Projeto"
+                                    data-en="View Project">Ver Projeto</a></div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="/img/jotahffz.png" alt="Landing Page">
-                            <div class="slide-overlay-a"><a target="_blank" href="https://pedrodanielbs.github.io/Jotahffz/" data-pt="Ver Projeto" data-en="View Project">Ver Projeto</a></div>
+                            <img src="/img/jotahffz.png" alt="Landing Page Jotahffz">
+                            <div class="slide-overlay-a"><a target="_blank"
+                                    href="https://pedrodanielbs.github.io/Jotahffz/" data-pt="Ver Projeto"
+                                    data-en="View Project">Ver Projeto</a></div>
                         </div>
                     </div>
                     <div class="swiper-pagination"></div>
@@ -145,17 +249,26 @@
                     </div>
                 </div>
                 <div class="service-details">
-                    <span class="service-tag" data-pt="Conversão" data-en="Conversion">Conversão</span>
-                    <h3 data-pt="Landing Pages de Alta Performance" data-en="High-Performance Landing Pages">Landing Pages de Alta Performance</h3>
-                    <p data-pt="Páginas de vendas focadas em resultados reais." data-en="Sales pages focused on real results.">Páginas de vendas focadas em resultados reais.</p>
+                    <span class="service-tag" data-pt="Conversão & UI/UX" data-en="Conversion & UI/UX">Conversão &
+                        UI/UX</span>
+                    <h3 data-pt="Landing Pages de Alta Performance" data-en="High-Performance Landing Pages">Landing
+                        Pages de Alta Performance</h3>
+                    <p data-pt="Páginas de vendas modernas, com design responsivo, carregamento ultrarrápido e arquitetura pensada para converter visitantes em clientes."
+                        data-en="Modern sales pages with responsive design, ultra-fast loading, and conversion-oriented architecture.">
+                        Páginas de vendas modernas, com design responsivo, carregamento ultrarrápido e arquitetura
+                        pensada para converter visitantes em clientes.</p>
                 </div>
             </div>
+
 
         </section>
 
         <footer class="services-footer">
-            <p data-pt="Interessado em elevar o nível do seu projeto?" data-en="Interested in taking your project to the next level?">Interessado em elevar o nível do seu projeto?</p>
-            <a href="https://wa.me/5577998025597" class="btn-primary" data-pt="Solicitar Orçamento" data-en="Request a Quote">Solicitar Orçamento</a>
+            <p data-pt="Interessado em elevar o nível do seu projeto?"
+                data-en="Interested in taking your project to the next level?">Interessado em elevar o nível do seu
+                projeto?</p>
+            <a href="https://wa.me/5577998025597" class="btn-primary" data-pt="Solicitar Orçamento"
+                data-en="Request a Quote">Solicitar Orçamento</a>
         </footer>
     </main>
 
@@ -163,4 +276,5 @@
     <script src="/scripts/aba-servicos.js"></script>
 
 </body>
+
 </html>

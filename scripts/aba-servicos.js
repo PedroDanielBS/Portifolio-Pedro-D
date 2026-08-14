@@ -15,7 +15,7 @@
                 
                 setTimeout(() => {
                     if (item.getAttribute('data-category') === category) {
-                        item.style.display = 'block';
+                        item.style.display = item.classList.contains('insta-card') ? 'flex' : 'block';
                         // Força um pequeno delay para a animação de entrada
                         setTimeout(() => {
                             item.style.opacity = '1';
@@ -26,6 +26,11 @@
                     }
                 }, 300);
             });
+
+            // Recalcula o Swiper após revelar o elemento
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+            }, 350);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
